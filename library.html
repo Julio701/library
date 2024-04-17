@@ -2,25 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playground</title>
-    <link rel="stylesheet" href="style/style.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Library Playground</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        .flower {
+            position: relative;
+            left: 50px;
+            margin: 5px;
+        }
+        .button {
+            background-color: darkgoldenrod;
+            padding: 1em;
+            border-radius: 1em;
+        }
+        .custom-duration {
+            --animate-duration: 2s;
+        }
+    </style>
 </head>
 <body>
     <section id="image-movement">
-        <button id="up">&uarr;</button>
-        <button id="down">&darr;</button>
-        <button id="left">&laquo;</button> 
-        <button id="right">&raquo;</button> 
-        <img class="flower" src="media/flower.webp" width="100" alt="Flower">
         <h2>Section 1: Image Movement</h2>
+        <button id="move-up">&uarr;</button>
+        <button id="move-down">&darr;</button>
+        <button id="move-left">&laquo;</button> 
+        <button id="move-right">&raquo;</button> 
+        <img class="flower" src="media/flower.webp" width="100" alt="Flower" id="movable-image">
     </section>
 
-    <!-- Rest of your sections -->
+    <section id="interactive-trivia">
+        <h2>Section 2: Interactive Trivia Question</h2>
+        <!-- Add your trivia question and answer buttons here -->
+    </section>
 
-    <script src="script.js"></script>
+    <section id="scroll-activated-image">
+        <h2>Section 3: Scroll-Activated Image Movement</h2>
+        <!-- Add your scroll-activated image here -->
+    </section>
+
+    <section id="choose-your-own-adventure">
+        <h2>Section 4: Choose-Your-Own-Adventure</h2>
+        <!-- This is your creative space! -->
+    </section>
+
+    <script src="scripts.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#move-up').click(function(){
+                $('#movable-image').css('top', (parseInt($('#movable-image').css('top')) - 30) + 'px');
+            });
+            $('#move-down').click(function(){
+                $('#movable-image').css('top', (parseInt($('#movable-image').css('top')) + 30) + 'px');
+            });
+            $('#move-left').click(function(){
+                $('#movable-image').css('left', (parseInt($('#movable-image').css('left')) - 30) + 'px');
+            });
+            $('#move-right').click(function(){
+                $('#movable-image').css('left', (parseInt($('#movable-image').css('left')) + 30) + 'px');
+            });
+        });
+    </script>
 </body>
 </html>
