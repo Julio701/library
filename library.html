@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library Playground</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Add your CSS library links here -->
-    <!-- Add your JavaScript library links here -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Playground</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 <body>
     <section id="image-movement">
@@ -21,24 +21,6 @@
 
     <!-- Rest of your sections -->
 
-    <script>
-        $(document).ready(function() {
-            $("#up").on("click", function() {
-                $(".flower").animate({"top": "-=50"}, "fast");
-            });
-
-            $("#down").on("click", function() {
-                $(".flower").animate({"top": "+=50"}, "fast");
-            });
-            
-            $("#right").on("click", function() {
-                $(".flower").animate({"left": "+=50"}, "fast");
-            });
-
-            $("#left").on("click", function() {
-                $(".flower").animate({"left": "-=50"}, "fast");
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
