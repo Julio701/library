@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Playground</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add your CSS library links here -->
+    <!-- Add your JavaScript library links here -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section id="image-movement">
+        <button id="up">&uarr;</button>
+        <button id="down">&darr;</button>
+        <button id="left">&laquo;</button> 
+        <button id="right">&raquo;</button> 
+        <img class="flower" src="media/flower.webp" width="100" alt="Flower">
+        <h2>Section 1: Image Movement</h2>
+    </section>
+
+    <!-- Rest of your sections -->
+
+    <script>
+        $(document).ready(function() {
+            $("#up").on("click", function() {
+                $(".flower").animate({"top": "-=50"}, "fast");
+            });
+
+            $("#down").on("click", function() {
+                $(".flower").animate({"top": "+=50"}, "fast");
+            });
+            
+            $("#right").on("click", function() {
+                $(".flower").animate({"left": "+=50"}, "fast");
+            });
+
+            $("#left").on("click", function() {
+                $(".flower").animate({"left": "-=50"}, "fast");
+            });
+        });
+    </script>
+</body>
+</html>
