@@ -35,7 +35,7 @@
         <button id="move-down">&darr;</button>
         <button id="move-left">&laquo;</button>
         <button id="move-right">&raquo;</button>
-        <img class="flower" src="media/flower.webp" width="100" alt="Flower" id="movable-image">
+        <img class="flower" src="media/vintage-car-png.webp" width="100" alt="Flower" id="movable-image">
     </section>
 
     <section id="interactive-trivia">
@@ -57,7 +57,11 @@
 
     <section id="choose-your-own-adventure">
         <h2>Section 4: Choose-Your-Own-Adventure</h2>
-        <!-- This is your creative space! -->
+        <div class="story">
+            <p>Imagine there you . You come across a fork in the path. Which way do you go?</p>
+            <button class="choice-button" id="left-path">Go left</button>
+            <button class="choice-button" id="right-path">Go right</button>
+        </div>
     </section>
 
     <script src="scripts.js"></script>
@@ -91,6 +95,15 @@
             $(window).scroll(function() {
                 var scrollTop = $(this).scrollTop();
                 $("#scroll-content").css("top", scrollTop + "px");
+            });
+        });
+        $(document).ready(function(){
+            $("#left-path").click(function() {
+                $(".story").html("<p>You chose to go left. You encounter a friendly fairy who guides you to safety.</p>");
+            });
+
+            $("#right-path").click(function() {
+                $(".story").html("<p>You chose to go right. You stumble upon a hidden treasure chest!</p>");
             });
         });
     </script>
