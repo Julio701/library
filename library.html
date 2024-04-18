@@ -50,7 +50,9 @@
 
     <section id="scroll-activated-image">
         <h2>Section 3: Scroll-Activated Image Movement</h2>
-        <!-- Add your scroll-activated image here -->
+        <div id="scroll-content">
+            <img class="flower" src="media/flower.webp" width="100" alt="Flower">
+        </div>
     </section>
 
     <section id="choose-your-own-adventure">
@@ -75,7 +77,7 @@
             });
         });
         $(document).ready(function () {
-            // Event listener for answer buttons
+           
             $(".answer").click(function () {
                 var isCorrect = $(this).data("correct");
                 if (isCorrect) {
@@ -85,7 +87,13 @@
                 }
             });
         });
+        $(document).ready(function(){
+            $(window).scroll(function() {
+                var scrollTop = $(this).scrollTop();
+                $("#scroll-content").css("top", scrollTop + "px");
+            });
+        });
     </script>
 </body>
-
+ 
 </html>
