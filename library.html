@@ -25,6 +25,19 @@
         .custom-duration {
             --animate-duration: 2s;
         }
+
+        #scroll-activated-image {
+            height: 500px;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        #moving-image {
+            width: 200px;
+            position: relative;
+            top: 0;
+            transition: top 0.5s ease;
+        }
     </style>
 </head>
 
@@ -50,15 +63,14 @@
 
     <section id="scroll-activated-image">
         <h2>Section 3: Scroll-Activated Image Movement</h2>
-        <div id="scroll-content">
-            <img class="flower" src="media/flower.webp" width="100" alt="Flower">
-        </div>
+        <img id="moving-image" src="media/Basketball.png" alt="Moving Image">
     </section>
 
     <section id="choose-your-own-adventure">
         <h2>Section 4: Choose-Your-Own-Adventure</h2>
         <div class="story">
-            <p>Imagine there you . You come across a fork in the path. Which way do you go?</p>
+            <p>Imagine you are driving and there is two roads to take. Both paths look good and safe. Which way do you
+                go?</p>
             <button class="choice-button" id="left-path">Go left</button>
             <button class="choice-button" id="right-path">Go right</button>
         </div>
@@ -81,7 +93,7 @@
             });
         });
         $(document).ready(function () {
-           
+
             $(".answer").click(function () {
                 var isCorrect = $(this).data("correct");
                 if (isCorrect) {
@@ -91,22 +103,31 @@
                 }
             });
         });
-        $(document).ready(function(){
-            $(window).scroll(function() {
-                var scrollTop = $(this).scrollTop();
-                $("#scroll-content").css("top", scrollTop + "px");
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                var scrollPosition = $(window).scrollTop();
+                var windowHeight = $(window).height();
+                var sectionOffset = $("#scroll-activated-image").offset().top;
+
+                if (scrollPosition > sectionOffset - windowHeight) {
+                    
+                    $("#moving-image").css("top", "200px"); 
+                } else {
+                    
+                    $("#moving-image").css("top", "0");
+                }
             });
         });
-        $(document).ready(function(){
-            $("#left-path").click(function() {
-                $(".story").html("<p>You chose to go left. You encounter a friendly fairy who guides you to safety.</p>");
+        $(document).ready(function () {
+            $("#left-path").click(function () {
+                $(".story").html("<p>You chose to go left. The road takes you to a dark forest with a bumpy road and a tree blocking the way. It's getting dark too.</p>");
             });
 
-            $("#right-path").click(function() {
-                $(".story").html("<p>You chose to go right. You stumble upon a hidden treasure chest!</p>");
+            $("#right-path").click(function () {
+                $(".story").html("<p>You chose to go right. You stumble upon a hidden lake with a hidden bag full of gold coins!</p>");
             });
         });
     </script>
 </body>
- 
+
 </html>
