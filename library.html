@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Playground</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
@@ -14,29 +15,37 @@
             left: 50px;
             margin: 5px;
         }
+
         .button {
             background-color: darkgoldenrod;
             padding: 1em;
             border-radius: 1em;
         }
+
         .custom-duration {
             --animate-duration: 2s;
         }
     </style>
 </head>
+
 <body>
     <section id="image-movement">
         <h2>Section 1: Image Movement</h2>
         <button id="move-up">&uarr;</button>
         <button id="move-down">&darr;</button>
-        <button id="move-left">&laquo;</button> 
-        <button id="move-right">&raquo;</button> 
+        <button id="move-left">&laquo;</button>
+        <button id="move-right">&raquo;</button>
         <img class="flower" src="media/flower.webp" width="100" alt="Flower" id="movable-image">
     </section>
 
     <section id="interactive-trivia">
         <h2>Section 2: Interactive Trivia Question</h2>
-        <!-- Add your trivia question and answer buttons here -->
+        <div id="question">What is the capital of Canada?</div>
+        <button class="answer" data-correct="true">Ottawa</button>
+        <button class="answer" data-correct="false">Toronto</button>
+        <button class="answer" data-correct="false">Montreal</button>
+        <button class="answer" data-correct="false">Vancouver</button>
+        <div id="result"></div>
     </section>
 
     <section id="scroll-activated-image">
@@ -51,20 +60,32 @@
 
     <script src="scripts.js"></script>
     <script>
-        $(document).ready(function(){
-            $('#move-up').click(function(){
+        $(document).ready(function () {
+            $('#move-up').click(function () {
                 $('#movable-image').css('top', (parseInt($('#movable-image').css('top')) - 30) + 'px');
             });
-            $('#move-down').click(function(){
+            $('#move-down').click(function () {
                 $('#movable-image').css('top', (parseInt($('#movable-image').css('top')) + 30) + 'px');
             });
-            $('#move-left').click(function(){
+            $('#move-left').click(function () {
                 $('#movable-image').css('left', (parseInt($('#movable-image').css('left')) - 30) + 'px');
             });
-            $('#move-right').click(function(){
+            $('#move-right').click(function () {
                 $('#movable-image').css('left', (parseInt($('#movable-image').css('left')) + 30) + 'px');
+            });
+        });
+        $(document).ready(function () {
+            // Event listener for answer buttons
+            $(".answer").click(function () {
+                var isCorrect = $(this).data("correct");
+                if (isCorrect) {
+                    $("#result").text("Correct!");
+                } else {
+                    $("#result").text("Try again!");
+                }
             });
         });
     </script>
 </body>
+
 </html>
