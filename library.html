@@ -9,36 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <style>
-        .flower {
-            position: relative;
-            left: 50px;
-            margin: 5px;
-        }
 
-        .button {
-            background-color: darkgoldenrod;
-            padding: 1em;
-            border-radius: 1em;
-        }
-
-        .custom-duration {
-            --animate-duration: 2s;
-        }
-
-        #scroll-activated-image {
-            height: 500px;
-            background-color: #f4f4f4;
-            padding: 20px;
-        }
-
-        #moving-image {
-            width: 200px;
-            position: relative;
-            top: 0;
-            transition: top 0.5s ease;
-        }
-    </style>
 </head>
 
 <body>
@@ -53,7 +24,7 @@
 
     <section id="interactive-trivia">
         <h2>Section 2: Interactive Trivia Question</h2>
-        <div id="question">What is the capital of Canada?</div>
+        <p>What is the capital of Canada?</p>
         <button class="answer" data-correct="true">Ottawa</button>
         <button class="answer" data-correct="false">Toronto</button>
         <button class="answer" data-correct="false">Montreal</button>
@@ -66,68 +37,20 @@
         <img id="moving-image" src="media/Basketball.png" alt="Moving Image">
     </section>
 
-    <section id="choose-your-own-adventure">
-        <h2>Section 4: Choose-Your-Own-Adventure</h2>
+    <section id="adventure">
+        <h2>Choose Your Own Adventure</h2>
         <div class="story">
-            <p>Imagine you are driving and there is two roads to take. Both paths look good and safe. Which way do you
-                go?</p>
-            <button class="choice-button" id="left-path">Go left</button>
-            <button class="choice-button" id="right-path">Go right</button>
+            <p>You find yourself at a crossroads.</p>
+            <button id="left-path">Take left path</button>
+            <button id="right-path">Take right path</button>
         </div>
+    </section>
+    <section id="Reflection">
+        <h2>Reflection</h2>
     </section>
 
     <script src="scripts.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#move-up').click(function () {
-                $('#movable-image').css('top', (parseInt($('#movable-image').css('top')) - 30) + 'px');
-            });
-            $('#move-down').click(function () {
-                $('#movable-image').css('top', (parseInt($('#movable-image').css('top')) + 30) + 'px');
-            });
-            $('#move-left').click(function () {
-                $('#movable-image').css('left', (parseInt($('#movable-image').css('left')) - 30) + 'px');
-            });
-            $('#move-right').click(function () {
-                $('#movable-image').css('left', (parseInt($('#movable-image').css('left')) + 30) + 'px');
-            });
-        });
-        $(document).ready(function () {
 
-            $(".answer").click(function () {
-                var isCorrect = $(this).data("correct");
-                if (isCorrect) {
-                    $("#result").text("Correct!");
-                } else {
-                    $("#result").text("Try again!");
-                }
-            });
-        });
-        $(document).ready(function () {
-            $(window).scroll(function () {
-                var scrollPosition = $(window).scrollTop();
-                var windowHeight = $(window).height();
-                var sectionOffset = $("#scroll-activated-image").offset().top;
-
-                if (scrollPosition > sectionOffset - windowHeight) {
-                    
-                    $("#moving-image").css("top", "200px"); 
-                } else {
-                    
-                    $("#moving-image").css("top", "0");
-                }
-            });
-        });
-        $(document).ready(function () {
-            $("#left-path").click(function () {
-                $(".story").html("<p>You chose to go left. The road takes you to a dark forest with a bumpy road and a tree blocking the way. It's getting dark too.</p>");
-            });
-
-            $("#right-path").click(function () {
-                $(".story").html("<p>You chose to go right. You stumble upon a hidden lake with a hidden bag full of gold coins!</p>");
-            });
-        });
-    </script>
 </body>
 
 </html>

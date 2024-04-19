@@ -1,0 +1,65 @@
+.flower {
+    position: relative;
+    left: 50px;
+    margin: 5px;
+}
+
+.button {
+    background-color: darkgoldenrod;
+    padding: 1em;
+    border-radius: 1em;
+}
+h2{
+    color: #fff;
+}
+.custom-duration {
+    --animate-duration: 2s;
+}
+
+#scroll-activated-image {
+    height: 500px;
+    background-color: #545151;
+    padding: 20px;
+}
+
+#moving-image {
+    width: 200px;
+    position: relative;
+    top: 0;
+    transition: top 0.5s ease;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #545151;
+}
+
+#adventure {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    background-image: url('media/forest.jpg');
+;
+}
+
+.story {
+    margin-bottom: 20px;
+}
+p{
+    color: #fff;
+}
+button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0f476c;
+}
